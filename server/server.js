@@ -8,7 +8,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.post('/math', (req, res) => {
+  const mathObject = req.body;
+  //req.body structure {equation:[num_1:number, num_2:number, operator:'string']}
+
   res.sendStatus(201);
+});
+
+app.get('/math', (req, res) => {
+  res.send('will change later'); //DON'T FORGET TO CHANGE!
 });
 
 app.listen(PORT, () => {
