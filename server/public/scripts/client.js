@@ -1,3 +1,5 @@
+const { response } = require("express");
+
 $(document).ready(init);
 
 const mathObject = {
@@ -9,12 +11,7 @@ const mathObject = {
 function init() {
   $('.js-opbtn').on('click', setObject);
   $('#jseqbtn').on('click', doDaMath);
-  // $('#jsaddbtn').on('click', addEm);
-  // $('#jssubbtn').on('click', subIt);
-  // $('#jsmultbtn').on('click', multiply);
-  // $('#jsdivbtn').on('click', divide);
-  // $('#jseqbtn').on('click', doDaMath);
-  // $('#jsclearbtn').on('click', clearIt);
+  $('#jsclearbtn').on('click', clearIt);
 }
 
 function setObject() {
@@ -28,8 +25,8 @@ function doDaMath() {
   $.ajax({
     type:'POST',
     url:'/math'
-    data: mathObject
-  }).then(response)=>{
+    data: mathObject,
+  }).then(response) => {
     console.log(response);
     getMathDone();
   }
@@ -37,6 +34,20 @@ function doDaMath() {
 
 function getMathDone() {
   console.log('Get it Here.');
+  $.ajax({
+    type:'GET',
+    url:'/math'
+  }).then(response) => {
+    console.log(response);
+    renderTotal();
+  }
+}
+
+function renderTotal(mathDone){
+  $('#total').empty();
+  for(let total of mathDone){
+    $('#total').append(`<p>${mathDone.total}</p>`);
+  }
 }
 
 function clearIt() {
