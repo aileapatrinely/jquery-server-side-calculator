@@ -1,32 +1,30 @@
 $(document).ready(init);
 
+const mathObject = {
+  num1: '',
+  num2: '',
+  operator: '',
+};
+
 function init() {
-  $('#jsaddbtn').on('click', addEm);
-  $('#jssubbtn').on('click', subIt);
-  $('#jsmultbtn').on('click', multiply);
-  $('#jsdivbtn').on('click', divide);
+  $('.js-opbtn').on('click', setObject);
   $('#jseqbtn').on('click', doDaMath);
-  $('#jsclearbtn').on('click', clearIt);
+  // $('#jsaddbtn').on('click', addEm);
+  // $('#jssubbtn').on('click', subIt);
+  // $('#jsmultbtn').on('click', multiply);
+  // $('#jsdivbtn').on('click', divide);
+  // $('#jseqbtn').on('click', doDaMath);
+  // $('#jsclearbtn').on('click', clearIt);
 }
 
-function addEm() {
-  console.log('Gonna Add Here');
+function setObject() {
+  mathObject.operator = $(this).attr('data-math');
+  mathObject.num1 = $('#jsnum1');
+  mathObject.num2 = $('#jsnum2');
+  console.log(mathObject);
 }
-
-function subIt() {
-  console.log('Gonna Subtract Here');
-}
-
-function multiply() {
-  console.log('Gonna Multiply Here');
-}
-
-function divide() {
-  console.log('Gonna Divide Here');
-}
-
 function doDaMath() {
-  console.log('I probably need a function for the = btn');
+  console.log('Doing Post');
   $.ajax({
     type:'POST',
     url:'/math'
