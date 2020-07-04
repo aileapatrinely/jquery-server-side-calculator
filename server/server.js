@@ -7,15 +7,33 @@ app.use(express.static('server/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.post('/mathadd', (req, res) => {
-  const mathObject = req.body;
-  //req.body structure {equation:[num_1:number, num_2:number, operator:'string']}
+const mathHistory = [];
 
+app.post('/math', (req, res) => {
+  const mathObject = req.body;
+  let num_1 = parseInt(mathObject.num1);
+  let num_2 = parseInt(mathObject.num2);
+  if (mathObject.operator === '+') {
+    let total = num_1 + num_2;
+  } else if (mathObject.operator === '-') {
+    let total = num_1 - num_2;
+  } else if (mathObject.operator === '*') {
+    let total = num_1 * num_2;
+  } else if (mathObject.operator === '/') {
+    let total = num_1 / num_2;
+  }
+  const mathDone = {
+    num1: mathObject.num1,
+    num2: mathObject.num2,
+    operator: mathObject.operator,
+    total: total,
+  };
+  mathHistory.push(mathDone);
   res.sendStatus(201);
 });
 
 app.get('/math', (req, res) => {
-  res.send('will change later'); //DON'T FORGET TO CHANGE!
+  res.send(mathDone);
 });
 
 app.listen(PORT, () => {

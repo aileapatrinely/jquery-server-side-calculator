@@ -41,4 +41,9 @@ function getMathDone() {
 
 function clearIt() {
   console.log('Gonna Clear It Here');
+  mathObject={
+    num1: '',
+    num2: '',
+    operator: '',
+  };
 }
