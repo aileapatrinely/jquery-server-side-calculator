@@ -3,6 +3,10 @@ $(document).ready(init);
 function init() {
   $('#jsaddbtn').on('click', addEm);
   $('#jssubbtn').on('click', subIt);
+  $('#jsmultbtn').on('click', multiply);
+  $('#jsdivbtn').on('click', divide);
+  $('#jseqbtn').on('click', doDaMath);
+  $('#jsclearbtn').on('click', clearIt);
 }
 
 function addEm() {
@@ -23,6 +27,18 @@ function divide() {
 
 function doDaMath() {
   console.log('I probably need a function for the = btn');
+  $.ajax({
+    type:'POST',
+    url:'/math'
+    data: mathObject
+  }).then(response)=>{
+    console.log(response);
+    getMathDone();
+  }
+}
+
+function getMathDone() {
+  console.log('Get it Here.');
 }
 
 function clearIt() {

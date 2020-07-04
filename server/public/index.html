@@ -17,17 +17,20 @@
 <body>
     <div>
         <div>
-            <input type="number" placeholder="First Number" />
+            <input type="number" placeholder="First Number" id='jsnum1' />
         </div>
-        <button id="jsaddbtn">+</button>
-        <button id="jssubbtn">-</button>
-        <button id="jsmultbtn">*</button>
-        <button id="jsdivbtn">/</button>
+        <button id="jsaddbtn" data-math='js-add'>+</button>
+        <button id="jssubbtn" data-math='js-sub'>-</button>
+        <button id="jsmultbtn" data-math='js-mult'>*</button>
+        <button id="jsdivbtn" data-math='js-divi'>/</button>
         <div>
-            <input type="number" placeholder="Second Number" />
+            <input type="number" placeholder="Second Number" id="jsnum2" />
         </div>
         <button id="jseqbtn">=</button>
         <button id="jsclearbtn">C</button>
+    </div>
+    <div>
+        <h2>Answer:</h2>
     </div>
 </body>
 

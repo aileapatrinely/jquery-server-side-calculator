@@ -7,7 +7,7 @@ app.use(express.static('server/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.post('/math', (req, res) => {
+app.post('/mathadd', (req, res) => {
   const mathObject = req.body;
   //req.body structure {equation:[num_1:number, num_2:number, operator:'string']}
 
