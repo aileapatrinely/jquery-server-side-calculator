@@ -10,6 +10,7 @@ app.use(bodyParser.json());
 const mathHistory = [];
 
 app.post('/math', (req, res) => {
+  console.log('post working?');
   const mathObject = req.body;
   let num_1 = parseInt(mathObject.num1);
   let num_2 = parseInt(mathObject.num2);
@@ -33,6 +34,7 @@ app.post('/math', (req, res) => {
 });
 
 app.get('/math', (req, res) => {
+  console.log('get working?');
   res.send(mathDone);
 });
 
