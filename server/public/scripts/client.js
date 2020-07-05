@@ -26,8 +26,8 @@ function doDaMath() {
     data: mathObject,
   }).then((response) => {
     console.log(response);
-    getMathDone();
   });
+  getMathDone();
 }
 
 function getMathDone() {
