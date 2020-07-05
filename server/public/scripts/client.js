@@ -1,4 +1,4 @@
-const { response } = require("express");
+const { response } = require('express');
 
 $(document).ready(init);
 
@@ -23,36 +23,36 @@ function setObject() {
 function doDaMath() {
   console.log('Doing Post');
   $.ajax({
-    type:'POST',
-    url:'/math'
+    type: 'POST',
+    url: '/math',
     data: mathObject,
-  }).then(response) => {
+  }).then((response) => {
     console.log(response);
     getMathDone();
-  }
+  });
 }
 
 function getMathDone() {
   console.log('Get it Here.');
   $.ajax({
-    type:'GET',
-    url:'/math'
-  }).then(response) => {
+    type: 'GET',
+    url: '/math',
+  }).then((response) => {
     console.log(response);
     renderTotal();
-  }
+  });
 }
 
-function renderTotal(mathDone){
+function renderTotal(mathDone) {
   $('#total').empty();
-  for(let total of mathDone){
+  for (let total of mathDone) {
     $('#total').append(`<p>${mathDone.total}</p>`);
   }
 }
 
 function clearIt() {
   console.log('Gonna Clear It Here');
-  mathObject={
+  mathObject = {
     num1: '',
     num2: '',
     operator: '',
