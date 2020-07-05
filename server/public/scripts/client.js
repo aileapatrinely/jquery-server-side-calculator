@@ -14,8 +14,8 @@ function init() {
 
 function setObject() {
   mathObject.operator = $(this).attr('data-math');
-  mathObject.num1 = $('#jsnum1');
-  mathObject.num2 = $('#jsnum2');
+  mathObject.num1 = $('#jsnum1').val();
+  mathObject.num2 = $('#jsnum2').val();
   console.log(mathObject);
 }
 function doDaMath() {
