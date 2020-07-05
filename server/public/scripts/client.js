@@ -1,5 +1,3 @@
-const { response } = require('express');
-
 $(document).ready(init);
 
 const mathObject = {
