@@ -14,14 +14,15 @@ app.post('/math', (req, res) => {
   const mathObject = req.body;
   let num_1 = parseInt(mathObject.num1);
   let num_2 = parseInt(mathObject.num2);
+  let total = 0;
   if (mathObject.operator === '+') {
-    let total = num_1 + num_2;
+    total = num_1 + num_2;
   } else if (mathObject.operator === '-') {
-    let total = num_1 - num_2;
+    total = num_1 - num_2;
   } else if (mathObject.operator === '*') {
-    let total = num_1 * num_2;
+    total = num_1 * num_2;
   } else if (mathObject.operator === '/') {
-    let total = num_1 / num_2;
+    total = num_1 / num_2;
   }
   const mathDone = {
     num1: mathObject.num1,
