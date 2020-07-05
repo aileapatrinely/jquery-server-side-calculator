@@ -8,6 +8,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 const mathHistory = [];
+let mathDone = [];
 
 app.post('/math', (req, res) => {
   console.log('post working?');
@@ -24,7 +25,7 @@ app.post('/math', (req, res) => {
   } else if (mathObject.operator === '/') {
     total = num_1 / num_2;
   }
-  const mathDone = {
+  mathDone = {
     num1: mathObject.num1,
     num2: mathObject.num2,
     operator: mathObject.operator,

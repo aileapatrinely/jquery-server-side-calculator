@@ -20,12 +20,14 @@ function setObject() {
 }
 function doDaMath() {
   console.log('Doing Post');
+
   $.ajax({
     type: 'POST',
     url: '/math',
     data: mathObject,
   }).then((response) => {
     console.log(response);
+    mathDone = response;
   });
   getMathDone();
 }
@@ -37,14 +39,15 @@ function getMathDone() {
     url: '/math',
   }).then((response) => {
     console.log(response);
-    renderTotal();
+    renderTotal(response);
   });
 }
 
-function renderTotal(mathDone) {
+function renderTotal(response) {
   $('#total').empty();
-  for (let total of mathDone) {
-    $('#total').append(`<p>${mathDone.total}</p>`);
+  for (let total in response) {
+    $('#total').empty();
+    $('#total').append(`<h3>${response.total}</h3>`);
   }
 }
 
